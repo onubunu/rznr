@@ -1,0 +1,36 @@
+<div id="rznr_middle_subpage">
+    <h2>Profil bearbeiten</h2>
+    <p><%= current_user.email %></p>
+</div>
+
+<div class="col_w600 float_c">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <div><%= f.label "E-Mail" %><br />
+      <%= f.email_field :email, :value => current_user.email,:readonly => true %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div><%= f.label :name, "Neues Passwort" %> <i>(Nur falls gewünscht)</i><br />
+      <%= f.password_field :password, autocomplete: "off", autofocus: true %></div>
+    <div><%= f.label :name, "Neues Passwort bestätigen" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <div><%= f.label :name, "Aktuelles Passwort" %> <i>(Änderungsbestätigung)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %></div>
+    <br />
+    <div><%= f.submit "aktualisieren" %></div>
+  <% end %>
+  <br />
+  <br />
+</div>
+
+
+
+
+<%= button_to "Profil löschen", registration_path(resource_name), data: { confirm: "Profil wirklich löschen?
+Achtung, dieser Vorgang kann nicht rückgängig gemacht werden!" }, method: :delete %>
+
+
+  <br />
+
+

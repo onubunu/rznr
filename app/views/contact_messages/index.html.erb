@@ -1,0 +1,34 @@
+<div id="rznr_middle_subpage">
+  <h2>Nachrichten</h2>   
+  <%= link_to 'Grundeinstellungen', settings_path %>        
+  <span class="text-separator">|</span>         
+  <%= link_to "Bilderslideshow", homesliders_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Aktionsboxen", homeboxes_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Benutzer", allusers_path %>      
+  <span class="text-separator">|</span>
+  <%= link_to "Google Analytics", "http://www.google.de/intl/de/analytics/", :target => "_blank" %>
+  <span class="text-separator">|</span>
+  <%= link_to "Roundcube Webmailer", "https://mail.kundenportal.railshoster.de/", :target => "_blank" %>
+  <br />
+  <br />
+  <%= link_to 'Zurück', :back %>
+</div>
+
+<div class="col_w960 float_c">
+  <% @contact_messages.sort_by{ |contact_message| [contact_message.created_at]  }.reverse.each do |contact_message| %>
+    <div align="left">
+      <b><%= contact_message.created_at.strftime("%d.%m.%Y" + " (%H:%M Uhr)") %></b>
+      <p>Von: <i><%= contact_message.title %> <%= contact_message.prename %> <%= contact_message.name %></i></p>
+      <p>E-Mail: <i><%= contact_message.email %></i></p>
+      <p>Betreff: <i><%= contact_message.subject %></i></p>
+      <p>Nachricht:<br />
+      <i><%= contact_message.message %></i></p>
+      <%= link_to 'Nachricht löschen', contact_message, method: :delete, data: { confirm: 'Soll diese Nachricht unwiederruflich gelöscht werden?' } %>
+      <hr/>
+      <hr/>
+      <div class="cleaner"></div>
+    </div>
+  <% end %>
+</div>

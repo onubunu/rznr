@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Jobtitle:</b>
+  <%= @job.jobtitle %>
+</p>
+
+<p>
+  <b>Jobdescription:</b>
+  <%= @job.jobdescription %>
+</p>
+
+<p>
+  <b>Validdate:</b>
+  <%= @job.validdate %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

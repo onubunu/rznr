@@ -1,0 +1,25 @@
+<div id="rznr_middle_subpage">
+    <h2>Mitarbeiter-Bild zuschneiden</h2>           
+      <br />
+      <br />
+      <%= link_to 'Zurück', employees_path %>
+</div>
+
+<div class="col_w600 float_l">
+	<%= image_tag @employee.employeeimage_url(:large), id: "cropbox6" %>
+
+	<h4>Vorschau</h4>
+	<div style="width:135px; height:180px; overflow:hidden">
+	  <%= image_tag @employee.employeeimage.url(:large), :id => "preview6" %>
+	</div>
+
+	<%= form_for @employee do |f| %>
+	  <% %w[x y w h].each do |attribute| %>
+	    <%= f.hidden_field "crop_#{attribute}" %>
+	  <% end %>
+	  <br />
+	  <div class="actions">
+	    <%= f.submit "Zuschneiden" %>
+	  </div><br />
+	<% end %>
+</div>

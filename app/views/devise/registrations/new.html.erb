@@ -1,0 +1,20 @@
+<div id="rznr_middle_subpage">
+    <h2>Registrierung</h2>
+    <%= render "devise/shared/links" %>
+</div>
+
+<div class="col_w600 float_c">
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  	<%= devise_error_messages! %>
+  	<div><%= f.label :email %><br />
+  		<%= f.email_field :email, autofocus: true %></div>
+		<div><%= f.label "Passwort" %> <% if @validatable %><i>(Mindestens <%= @minimum_password_length %> Zeichen)</i><% end %><br />
+    	<%= f.password_field :password, autocomplete: "off" %></div>
+  	<div><%= f.label "Passwort wiederholen" %><br />
+    	<%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+	  <br />
+	  <div><%= f.submit "registrieren" %></div>
+	<% end %>
+	<br />
+	<br />
+</div>

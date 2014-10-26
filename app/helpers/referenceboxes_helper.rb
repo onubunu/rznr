@@ -1,0 +1,2 @@
+module ReferenceboxesHelper
+end

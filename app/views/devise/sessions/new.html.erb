@@ -1,0 +1,17 @@
+<div id="rznr_middle_subpage">
+    <h2>Anmeldung</h2>
+    <%= render "devise/shared/links" %>
+</div>
+
+<div class="col_w600 float_c">
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	  <div><%= f.label :email %><br />
+	  <%= f.email_field :email, autofocus: true %></div>
+	  <div><%= f.label "Passwort" %><br />
+	    <%= f.password_field :password, autocomplete: "off" %></div>
+	  <br />
+	  <div><%= f.submit "Anmelden" %></div>
+	<% end %>
+	<br />
+	<br />
+</div>

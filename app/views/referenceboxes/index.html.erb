@@ -1,0 +1,33 @@
+<script type="text/javascript">
+$(function() {
+    $('.lightbox').lightBox();
+});
+</script>
+
+<div id="rznr_middle_subpage">
+    <h2>Referenzen</h2>
+    <p><%= Setting.first(1).present? && Setting.first.referenceinfo.to_s.present? ? Setting.first.referenceinfo.html_safe : "" %></p>
+</div>
+
+<div class="col_w960 float_l">
+  <% if current_user && current_user.admin? %>
+    <%= link_to 'Neue Referenz hinzufügen', new_referencebox_path %>
+    <br />
+    <br />
+  <% end %>
+  <br />
+
+  <% @referenceboxes.sort_by{ |referencebox| [referencebox.created_at]  }.reverse.each do |referencebox| %>
+    <div id="gallery">
+      <div class="gallery_box">
+        <p><%= referencebox.referencetitle %></p>
+        <a class="lightbox" href='<%= referencebox.referenceimage_url(:bigbox) %>' title='<%= referencebox.referencetext %>'>
+          <%= image_tag referencebox.referenceimage_url(:box).to_s %>
+          <% if current_user && current_user.admin? %>
+            <%= link_to 'Bearbeiten', edit_referencebox_path(referencebox) %> | <%= link_to 'Löschen', referencebox, method: :delete, data: { confirm: 'Soll diese Referenz wirklich gelöscht werden?' } %>
+          <% end %>
+        </a>
+      </div>     
+    </div>    
+  <% end %> 
+</div>

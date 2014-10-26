@@ -1,0 +1,44 @@
+<div id="rznr_middle_subpage">
+  <h2>Aktionsboxen</h2>
+  <%= link_to 'Grundeinstellungen', settings_path %>        
+  <span class="text-separator">|</span>
+  <%= link_to "Bilderslideshow", homesliders_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Nachrichten", contact_messages_path %>
+  <span class="text-separator">|</span>
+  <%= link_to "Benutzer", allusers_path %>      
+  <span class="text-separator">|</span>
+  <%= link_to "Google Analytics", "http://www.google.de/intl/de/analytics/", :target => "_blank" %>
+  <span class="text-separator">|</span>
+  <%= link_to "Roundcube Webmailer", "https://mail.kundenportal.railshoster.de/", :target => "_blank" %>
+  <br />
+  <br />
+  <%= link_to 'Zurück', :back %>
+  <% if Homebox.count < 3 %>
+    <span class="text-separator"> | </span><%= link_to 'Neue Aktionsbox hinzufügen', new_homebox_path %>
+  <% end %>
+</div>
+
+<div class="col_w960 float_l">
+  <% if Homebox.count > 2 %>
+    <p class="alert_alert-danger">Maximale Anzahl von 3 Aktionsboxen erreicht!</p>
+  <% end %>
+  <table>
+    <% @homeboxes.each do |homebox| %>
+      <tr>
+        <td class = "images"><br /><%= image_tag homebox.homeboximage_url(:box).to_s  %></td>
+        <td class = "images"><br />
+          <%= link_to 'Bearbeiten', edit_homebox_path(homebox) %>
+          <span class="text-separator">|</span>
+          <%= link_to 'Löschen', homebox, method: :delete, data: { confirm: 'Soll dieses Bild wirklich gelöscht werden?' } %><br />
+          <b>Link nach: </b><%= homebox.homeboxlink.to_s %>
+          <br />
+          <b>Überschrift: </b><%= homebox.homeboxtitle %>
+          <br />
+          <b>Beschreibung: </b><%= homebox.homeboxtext %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<br />

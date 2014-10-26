@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  serviceboxtitle: MyString
+  serviceboximage: MyString
+  serviceboxtext: MyText
+
+two:
+  serviceboxtitle: MyString
+  serviceboximage: MyString
+  serviceboxtext: MyText

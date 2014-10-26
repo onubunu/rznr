@@ -1,0 +1,41 @@
+<%= form_for(@contact_message) do |f| %>
+  <% if @contact_message.errors.any? %>
+    <% @contact_message.errors.full_messages.each do |msg| %>
+      <p class="alert_alert-danger"><%= msg %></p>
+    <% end %>
+    <hr />
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.select :title, ["Frau", "Herr"], :prompt => "Bitte wählen" %>
+  </div>
+  <div class="field">
+    <%= f.label :prename %><br />
+    <%= f.text_field :prename %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <% if current_user %>
+      <%= f.text_field :email, :value => current_user.email,:readonly => true %>
+    <% else %>
+      <%= f.text_field :email %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_area :message, size: "50x20" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Nachricht senden" %>
+  </div>
+<% end %>
+

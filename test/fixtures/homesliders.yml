@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sliderimage: MyString
+  sliderlink: MyString
+  slidertext: MyString
+
+two:
+  sliderimage: MyString
+  sliderlink: MyString
+  slidertext: MyString

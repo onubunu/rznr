@@ -1,0 +1,19 @@
+<h3>Bild zuschneiden</h3>
+
+<%= image_tag @setting.firmlogo_url(:large), id: "cropbox" %>
+
+<h4>Preview</h4>
+<div style="width:280px; height:70px; overflow:hidden">
+  <%= image_tag @setting.firmlogo.url(:large), :id => "preview" %>
+</div>
+
+<%= form_for @setting do |f| %>
+  <% %w[x y w h].each do |attribute| %>
+    <%= f.hidden_field "crop_#{attribute}" %>
+  <% end %>
+  <br />
+  <div class="actions">
+    <%= f.submit "Crop" %>
+  </div>
+  <%= link_to 'Back', settings_path %>
+<% end %>

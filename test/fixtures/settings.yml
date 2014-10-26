@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  firmlogo: MyString
+  firmname: MyString
+  firmnameadd: MyString
+  firmowner: MyString
+  firmstreet: MyString
+  firmzipcode: MyString
+  firmcity: MyString
+  firmcountry: MyString
+  firmphone: MyString
+  firmfax: MyString
+  firmmail: MyString
+  firmweb: MyString
+  firmtaxno1: MyString
+  firmtaxno2: MyString
+
+two:
+  firmlogo: MyString
+  firmname: MyString
+  firmnameadd: MyString
+  firmowner: MyString
+  firmstreet: MyString
+  firmzipcode: MyString
+  firmcity: MyString
+  firmcountry: MyString
+  firmphone: MyString
+  firmfax: MyString
+  firmmail: MyString
+  firmweb: MyString
+  firmtaxno1: MyString
+  firmtaxno2: MyString

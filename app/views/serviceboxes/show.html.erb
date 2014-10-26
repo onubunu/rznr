@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @servicebox.serviceboximage_url(:box).to_s  %>
+</p>
+
+<p>
+  <b>Serviceboxtitle:</b>
+  <%= @servicebox.serviceboxtitle %>
+</p>
+
+<p>
+  <b>Serviceboximage:</b>
+  <%= @servicebox.serviceboximage %>
+</p>
+
+<p>
+  <b>Serviceboxtext:</b>
+  <%= @servicebox.serviceboxtext %>
+</p>
+
+
+<%= link_to 'Edit', edit_servicebox_path(@servicebox) %> |
+<%= link_to 'Back', serviceboxes_path %>

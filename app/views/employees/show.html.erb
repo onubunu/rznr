@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @employeeimage.employeeimage(:box).to_s  %>
+</p>
+<p>
+  <b>Employeename:</b>
+  <%= @employee.employeename %>
+</p>
+
+<p>
+  <b>Employeeimage:</b>
+  <%= @employee.employeeimage %>
+</p>
+
+<p>
+  <b>Employeeabout:</b>
+  <%= @employee.employeeabout %>
+</p>
+
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  jobtitle: MyString
+  jobdescription: MyText
+  validdate: 2014-10-09 18:51:15
+
+two:
+  jobtitle: MyString
+  jobdescription: MyText
+  validdate: 2014-10-09 18:51:15

@@ -1,0 +1,25 @@
+<div id="rznr_middle_subpage">
+    <h2>Bild für Slideshow zuschneiden</h2>           
+      <br />
+      <br />
+      <%= link_to 'Zurück', homesliders_path %>
+</div>
+
+<div class="col_w600 float_l">
+	<%= image_tag @homeslider.sliderimage_url(:large), id: "cropbox2" %>
+
+	<h4>Vorschau</h4>
+	<div style="width:960px; height:280px; overflow:hidden">
+	  <%= image_tag @homeslider.sliderimage.url(:large), :id => "preview2" %>
+	</div>
+
+	<%= form_for @homeslider do |f| %>
+	  <% %w[x y w h].each do |attribute| %>
+	    <%= f.hidden_field "crop_#{attribute}" %>
+	  <% end %>
+	  <br />
+	  <div class="actions">
+	    <%= f.submit "Zuschneiden" %>
+	  </div><br />
+	<% end %>
+</div>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @homeslider.sliderimage_url(:slider).to_s  %>
+</p>
+
+<p>
+  <b>Sliderimage:</b>
+  <%= @homeslider.sliderimage %>
+</p>
+
+<p>
+  <b>Sliderlink:</b>
+  <%= @homeslider.sliderlink %>
+</p>
+
+<p>
+  <b>Slidertext:</b>
+  <%= @homeslider.slidertext %>
+</p>
+
+
+<%= link_to 'Edit', edit_homeslider_path(@homeslider) %> |
+<%= link_to 'Back', homesliders_path %>

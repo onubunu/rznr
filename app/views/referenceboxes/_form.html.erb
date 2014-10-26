@@ -1,0 +1,54 @@
+<div class="col_w600 float_c">
+  <%= form_for(@referencebox) do |f| %>
+  <% if @referencebox.errors.any? %>
+    <% @referencebox.errors.full_messages.each do |msg| %>
+      <p class="alert_alert-danger"><%= msg %></p>
+    <% end %>
+    <hr />
+  <% end %>
+
+    <div class="field">
+      <%= f.label :referenceimage %><br />
+      <%= f.file_field :referenceimage, :onchange =>"validateFiles(this);", :data => { :max_file_size => 10.megabytes }%>
+    </div>
+    <div class="field">
+      <%= f.label :referencetitle %><br />
+      <%= f.text_field :referencetitle, :maxlength => 19, :size => 25 %>
+    </div>
+    <div class="field">
+      <%= f.label :referencetext %><br />
+      <%= f.text_area :referencetext, size: "80x10" %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div><br />
+  <% end %>
+</div>
+
+<script type="text/javascript">
+function validateFiles(inputFile) {
+  var maxExceededMessage = "Maximal 10 MB erlaubt!";
+  var extErrorMessage = "Nur Dateiendungen *.jpg oder *.jpeg erlaubt!";
+  var allowedExtension = ["JPG", "Jpg", "jpg", "JPEG", "Jpeg", "jpeg"];
+  
+  var extName;
+  var maxFileSize = $(inputFile).data('max-file-size');
+  var sizeExceeded = false;
+  var extError = false;
+  
+  $.each(inputFile.files, function() {
+    if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {sizeExceeded=true;};
+    extName = this.name.split('.').pop();
+    if ($.inArray(extName, allowedExtension) == -1) {extError=true;};
+  });
+  if (sizeExceeded) {
+    window.alert(maxExceededMessage);
+    $(inputFile).val('');
+  };
+  
+  if (extError) {
+    window.alert(extErrorMessage);
+    $(inputFile).val('');
+  };
+}
+</script>

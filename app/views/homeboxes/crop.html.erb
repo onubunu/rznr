@@ -1,0 +1,25 @@
+<div id="rznr_middle_subpage">
+    <h2>Bild für Aktionsbox zuschneiden</h2>           
+      <br />
+      <br />
+      <%= link_to 'Zurück', homeboxes_path %>
+</div>
+
+<div class="col_w600 float_l">
+	<%= image_tag @homebox.homeboximage_url(:large), id: "cropbox3" %>
+
+	<h4>Vorschau</h4>
+	<div style="width:290px; height:145px; overflow:hidden">
+	  <%= image_tag @homebox.homeboximage.url(:large), :id => "preview3" %>
+	</div>
+
+	<%= form_for @homebox do |f| %>
+	  <% %w[x y w h].each do |attribute| %>
+	    <%= f.hidden_field "crop_#{attribute}" %>
+	  <% end %>
+	  <br />
+	  <div class="actions">
+	    <%= f.submit "Zuschneiden" %>
+	  </div><br />
+	<% end %>
+</div>

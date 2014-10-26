@@ -1,0 +1,12 @@
+<div id="rznr_middle_subpage">
+    <h2>Allgemeine Geschäftbedingungen</h2>
+    <p><%= Setting.first(1).present? && Setting.first.terminfo.to_s.present? ? Setting.first.terminfo.html_safe : "" %></p>
+</div>
+
+<div class="col_w960 float_l">
+  <div class="news_box">
+    <pre><%= word_wrap((Setting.first(1).present? && Setting.first.terms.to_s.present? ? Setting.first.terms.html_safe : ""), line_width: 150) %></pre>
+  </div>
+  <div class="cleaner"></div>
+</div>
+

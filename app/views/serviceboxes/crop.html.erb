@@ -1,0 +1,25 @@
+<div id="rznr_middle_subpage">
+    <h2>Bild für Leistung zuschneiden</h2>           
+      <br />
+      <br />
+      <%= link_to 'Zurück', serviceboxes_path %>
+</div>
+
+<div class="col_w600 float_l">
+	<%= image_tag @servicebox.serviceboximage_url(:large), id: "cropbox4" %>
+
+	<h4>Vorschau</h4>
+	<div style="width:290px; height:145px; overflow:hidden">
+	  <%= image_tag @servicebox.serviceboximage.url(:large), :id => "preview4" %>
+	</div>
+
+	<%= form_for @servicebox do |f| %>
+	  <% %w[x y w h].each do |attribute| %>
+	    <%= f.hidden_field "crop_#{attribute}" %>
+	  <% end %>
+	  <br />
+	  <div class="actions">
+	    <%= f.submit "Zuschneiden" %>
+	  </div><br />
+	<% end %>
+</div>

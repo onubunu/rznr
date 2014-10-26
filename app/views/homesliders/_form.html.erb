@@ -1,0 +1,60 @@
+<div class="col_w600 float_c">
+  <%= form_for(@homeslider) do |f| %>
+  <% if @homeslider.errors.any? %>
+    <% @homeslider.errors.full_messages.each do |msg| %>
+      <p class="alert_alert-danger"><%= msg %></p>
+    <% end %>
+    <hr />
+  <% end %>
+    
+    <div class="field">
+      <%= f.label :sliderimage %><br />
+      <%= f.file_field :sliderimage, :onchange =>"validateFiles(this);", :data => { :max_file_size => 10.megabytes }%>
+    </div>
+     <div class="field">
+      <%= f.label :source %><br />
+      <%= f.text_field :source, :size => 35 %>
+    </div>
+    <div class="field">
+      <%= f.label :sliderlink %><br />
+      <%= f.select :sliderlink, Homeslider::LINKS, prompt: "Bitte wählen" %>
+    </div>
+    <div class="field">
+      <%= f.label "Text:" %><br />
+      <%= f.text_field :slidertext, :maxlength => 25, :size => 35 %>
+    </div>
+    <br />
+    <div class="actions">
+      <%= f.submit %>
+    </div><br />
+  <% end %>
+</div>
+<br />
+
+<script type="text/javascript">
+function validateFiles(inputFile) {
+  var maxExceededMessage = "Maximal 10 MB erlaubt!";
+  var extErrorMessage = "Nur Dateiendungen *.jpg oder *.jpeg erlaubt!";
+  var allowedExtension = ["JPG", "Jpg", "jpg", "JPEG", "Jpeg", "jpeg"];
+  
+  var extName;
+  var maxFileSize = $(inputFile).data('max-file-size');
+  var sizeExceeded = false;
+  var extError = false;
+  
+  $.each(inputFile.files, function() {
+    if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {sizeExceeded=true;};
+    extName = this.name.split('.').pop();
+    if ($.inArray(extName, allowedExtension) == -1) {extError=true;};
+  });
+  if (sizeExceeded) {
+    window.alert(maxExceededMessage);
+    $(inputFile).val('');
+  };
+  
+  if (extError) {
+    window.alert(extErrorMessage);
+    $(inputFile).val('');
+  };
+}
+</script>

@@ -1,0 +1,39 @@
+<div id="rznr_middle_subpage">
+    <h2>Über uns</h2>           
+    <p><%= Setting.first(1).present? && Setting.first.aboutinfo.to_s.present? ? Setting.first.aboutinfo.html_safe : "" %></p>
+</div>
+
+<div class="col_450 float_c">
+    <% if current_user && current_user.admin? %>
+    <%= link_to 'Neuen Mitarbeiter hinzufügen', new_employee_path %>
+        <br />
+    <br />
+  <% end %>
+  <br />
+  <div align="center">
+    <% if Employee.count > 2 %>
+      <h3>Unser Team</h3>
+      <br /><br />
+    <% end %>
+  </div>
+  <% @employees.each do |employee| %>
+    <div align="center">
+      <% if current_user && current_user.admin? %>
+        <%= link_to 'Bearbeiten', edit_employee_path(employee) %>
+        <span class="text-separator">|</span>
+        <%= link_to 'Löschen', employee, method: :delete, data: { confirm: 'Soll dieser Mitarbeiter wirklich gelöscht werden?' } %>
+        <br />
+      <% end %>
+      <div class="news_box2">
+        <%= image_tag employee.employeeimage_url(:box).to_s  %>
+        <br />
+        <b><%= employee.employeename %></b><br />
+        <%= employee.employeeabout %> 
+        <br />
+        <br />
+      </div> 
+      <div class="cleaner"></div>
+      <br /> 
+    </div>
+  <% end %>
+</div>

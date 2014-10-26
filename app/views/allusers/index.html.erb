@@ -1,0 +1,31 @@
+<div id="rznr_middle_subpage">
+  <h2>Benutzer</h2>   
+  <%= link_to "Bilderslideshow", homesliders_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Aktionsboxen", homeboxes_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Nachrichten", contact_messages_path %>
+  <span class="text-separator">|</span>
+  <%= link_to "Google Analytics", "http://www.google.de/intl/de/analytics/", :target => "_blank" %>
+  <span class="text-separator">|</span>
+  <%= link_to "Roundcube Webmailer", "https://mail.kundenportal.railshoster.de/", :target => "_blank" %>
+  <br />
+  <br />
+  <%= link_to 'Zurück', :back %>
+</div>
+
+<div class="col_w960 float_c">
+  <% @allusers.sort_by{ |alluser| [alluser.created_at]  }.reverse.each do |alluser| %>
+    <div align="left">
+			<strong><%= alluser.email %></strong> (Anmeldungen: <%= alluser.sign_in_count %>)<br />
+			Registriert seit: <%= alluser.created_at.strftime("%d.%m.%Y" + " (%H:%M Uhr)") %><br />
+			Letze Anmeldung: <%= if alluser.last_sign_in_at != nil then alluser.last_sign_in_at.strftime("%d.%m.%Y" + " (%H:%M Uhr)") else "" end %><br />
+			Letze Anmelde-IP: <%= alluser.last_sign_in_ip %><br />
+			Aktuelle Anmeldung: <%= if alluser.current_sign_in_at != nil then alluser.current_sign_in_at.strftime("%d.%m.%Y" + " (%H:%M Uhr)") else "" end %><br />
+			Aktuelle Login-IP: <%= alluser.current_sign_in_ip %><br />
+      <hr/>
+      <hr/>
+      <div class="cleaner"></div>
+    </div>
+  <% end %>
+</div>

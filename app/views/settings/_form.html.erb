@@ -1,0 +1,159 @@
+<%= form_for(@setting) do |f| %>
+  <% if @setting.errors.any? %>
+    <% @setting.errors.full_messages.each do |msg| %>
+      <p class="alert_alert-danger"><%= msg %></p>
+    <% end %>
+    <hr />
+  <% end %>
+
+  <br />
+  <a name= "settings"></a>
+  <h3>Website-Daten:</h3>
+  <div class="field">
+    <%= f.label :firmlogo %><br />
+    <%= f.file_field :firmlogo, :onchange =>"validateFiles(this);", :data => { :max_file_size => 10.megabytes }%>
+  </div>
+  <div class="field">
+    <%= f.label :firmname %><br />
+    <%= f.text_field :firmname %>
+  </div>
+  <div class="field">
+    <%= f.label :firmnameadd %><br />
+    <%= f.text_field :firmnameadd %>
+  </div>
+  <div class="field">
+    <%= f.label :firmowner %><br />
+    <%= f.text_field :firmowner %>
+  </div>
+  <div class="field">
+    <%= f.label :firmstreet %><br />
+    <%= f.text_field :firmstreet %>
+  </div>
+  <div class="field">
+    <%= f.label :firmzipcode %><br />
+    <%= f.text_field :firmzipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :firmcity %><br />
+    <%= f.text_field :firmcity %>
+  </div>
+  <div class="field">
+    <%= f.label :firmcountry %><br />
+    <%= f.text_field :firmcountry %>
+  </div>
+  <div class="field">
+    <%= f.label :firmphone %><br />
+    <%= f.text_field :firmphone %>
+  </div>
+  <div class="field">
+    <%= f.label :firmfax %><br />
+    <%= f.text_field :firmfax %>
+  </div>
+  <div class="field">
+    <%= f.label :firmmail %><br />
+    <%= f.text_field :firmmail %>
+  </div>
+  <div class="field">
+    <%= f.label :firmweb %><br />
+    <%= f.text_field :firmweb %>
+  </div>
+  <div class="field">
+    <%= f.label :firmtaxno1 %><br />
+    <%= f.text_field :firmtaxno1 %>
+  </div>
+  <div class="field">
+    <%= f.label :firmtaxno2 %><br />
+    <%= f.text_field :firmtaxno2 %>
+  </div>
+  <br />
+    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#settings"%>
+  <hr/>
+  <hr/>
+  <br />
+
+  <a name= "infos"></a>
+  <h3>Seiten-Textinfos:</h3>
+  <div class="field">
+    <%= f.label :serviceinfo %><br/>
+    <%= f.text_area :serviceinfo, :maxlength => 150, size: "80x3" %>
+  </div>
+  <div class="field">
+    <%= f.label :referenceinfo %><br/>
+    <%= f.text_area :referenceinfo, :maxlength => 150, size: "80x3" %>
+  </div>
+    <div class="field">
+    <%= f.label :aboutinfo %><br/>
+    <%= f.text_area :aboutinfo, :maxlength => 150, size: "80x3" %>
+  </div>
+    <div class="field">
+    <%= f.label :contactinfo %><br/>
+    <%= f.text_area :contactinfo, :maxlength => 150, size: "80x3" %>
+  </div>
+    <div class="field">
+    <%= f.label :jobinfo %><br/>
+    <%= f.text_area :jobinfo, :maxlength => 150, size: "80x3" %>
+  </div>
+    <div class="field">
+    <%= f.label :terminfo %><br/>
+    <%= f.text_area :terminfo, :maxlength => 150, size: "80x3" %>
+  </div>
+    <div class="field">
+    <%= f.label :legalnoticeinfo %><br/>
+    <%= f.text_area :legalnoticeinfo, :maxlength => 150, size: "80x3" %>
+  </div>
+  <br />
+    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#infos"%>
+  <hr/>
+  <hr/>
+  <br />
+
+  <a name= "terms"></a>
+  <h3><%= f.label :terms %></h3>
+  <div class="field">
+    <%= f.text_area :terms, size: "100x20" %>
+  </div>
+    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#terms"%>
+  <hr/>
+  <hr/>
+  <br />
+
+  <a name= "legalnotice"></a>
+  <h3><%= f.label :legalnotice %></h3>
+  <div class="field">
+    <%=f.text_area :legalnotice, size: "100x20" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#legalnotice"%>
+  </div>
+  <hr/>
+  <hr/>
+  <br />
+<% end %>
+
+<script type="text/javascript">
+function validateFiles(inputFile) {
+  var maxExceededMessage = "Maximal 10 MB erlaubt!";
+  var extErrorMessage = "Nur Dateiendungen *.png erlaubt!";
+  var allowedExtension = ["Png", "PNG", "png"];
+  
+  var extName;
+  var maxFileSize = $(inputFile).data('max-file-size');
+  var sizeExceeded = false;
+  var extError = false;
+  
+  $.each(inputFile.files, function() {
+    if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {sizeExceeded=true;};
+    extName = this.name.split('.').pop();
+    if ($.inArray(extName, allowedExtension) == -1) {extError=true;};
+  });
+  if (sizeExceeded) {
+    window.alert(maxExceededMessage);
+    $(inputFile).val('');
+  };
+  
+  if (extError) {
+    window.alert(extErrorMessage);
+    $(inputFile).val('');
+  };
+}
+</script>

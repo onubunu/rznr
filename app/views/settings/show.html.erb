@@ -1,0 +1,171 @@
+<div id="rznr_middle_subpage">
+  <h2>Einstellungen</h2>    
+  <%= link_to "Bilderslideshow", homesliders_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Aktionsboxen", homeboxes_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Nachrichten", contact_messages_path %>
+  <span class="text-separator">|</span>
+  <%= link_to "Benutzer", allusers_path %>      
+  <span class="text-separator">|</span>
+  <%= link_to "Google Analytics", "http://www.google.de/intl/de/analytics/", :target => "_blank" %>
+  <span class="text-separator">|</span>
+  <%= link_to "Roundcube Webmailer", "https://mail.kundenportal.railshoster.de/", :target => "_blank" %>
+  <br />
+  <br />
+  <%= link_to 'Grundeinstellungen bearbeiten', edit_setting_path(@setting) %><br />
+
+</div>
+
+<div class="col_w960 float_c">
+  
+  <br />
+  <a name= "settings"></a>
+  <h3>Website-Daten:</h3>
+  <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#settings" %>
+  <br />
+  <br />
+
+  <p>
+    <b>Firmenlogo:</b><br />
+    <%= image_tag @setting.firmlogo_url(:thumb) %>
+  </p>
+
+  <p>
+    <b>Firmenname:</b>
+    <%= @setting.firmname %>
+  </p>
+
+  <p>
+    <b>Firmenname-Zusatz:</b>
+    <%= @setting.firmnameadd %>
+  </p>
+
+  <p>
+    <b>Geschäftsführer:</b>
+    <%= @setting.firmowner %>
+  </p>
+
+  <p>
+    <b>Strasse und Hausnr.:</b>
+    <%= @setting.firmstreet %>
+  </p>
+
+  <p>
+    <b>PLZ:</b>
+    <%= @setting.firmzipcode %>
+  </p>
+
+  <p>
+    <b>Ort:</b>
+    <%= @setting.firmcity %>
+  </p>
+
+  <p>
+    <b>Land:</b>
+    <%= @setting.firmcountry %>
+  </p>
+
+  <p>
+    <b>Telefon:</b>
+    <%= @setting.firmphone %>
+  </p>
+
+  <p>
+    <b>Telefax:</b>
+    <%= @setting.firmfax %>
+  </p>
+
+  <p>
+    <b>E-Mail:</b>
+    <%= @setting.firmmail %>
+  </p>
+
+  <p>
+    <b>Internetadresse:</b>
+    <%= @setting.firmweb %>
+  </p>
+
+  <p>
+    <b>Steuernummer:</b>
+    <%= @setting.firmtaxno1 %>
+  </p>
+
+  <p>
+    <b>Umsatzsteuer-ID:</b>
+    <%= @setting.firmtaxno2 %>
+  </p>
+
+  <hr/>
+  <hr/>
+  <br />
+
+  <a name= "infos"></a>
+  <h3>Seiten-Textinfos:</h3>
+  <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#infos" %>
+  <br />
+  <br />
+
+  <p>
+    <b>Leistungen Textinfo:</b>
+    <%= @setting.serviceinfo %>
+  </p>
+
+  <p>
+    <b>Referenzen Textinfo:</b>
+    <%= @setting.referenceinfo %>
+  </p>
+
+  <p>
+    <b>Über uns Textinfo:</b>
+    <%= @setting.aboutinfo %>
+  </p>
+
+  <p>
+    <b>Kontakt Textinfo:</b>
+    <%= @setting.contactinfo %>
+  </p>
+
+  <p>
+    <b>Jobs Textinfo:</b>
+    <%= @setting.jobinfo %>
+  </p>
+
+  <p>
+    <b>AGB Textinfo:</b>
+    <%= @setting.terminfo %>
+  </p>
+
+  <p>
+    <b>Impressum Textinfo:</b>
+    <%= @setting.legalnoticeinfo %>
+  </p>
+
+  <hr/>
+  <hr/>
+  <br />
+
+  <a name= "terms"></a>
+  <h3>Allgemeine Geschäftsbedingungen:</h3>
+  <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#terms"  %>
+  <br />
+  <br />
+  <pre><%= @setting.terms %></pre>
+
+  <hr/>
+  <hr/>
+  <br />
+
+  <a name= "legalnotice"></a>
+  <h3>Impressum:</h3>
+  <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#legalnotice" %>
+  <br /> 
+  <br /> 
+  <pre><%= @setting.legalnotice %></pre>
+ 
+  <hr/>
+  <hr/>
+
+</div>
+
+

@@ -1,0 +1,29 @@
+<div id="rznr_middle_subpage">
+    <h2>Leistungen</h2>
+    <p><%= Setting.first(1).present? && Setting.first.serviceinfo.to_s.present? ? Setting.first.serviceinfo.html_safe : "" %></p>
+</div>
+
+<div class="col_w960 float_l">
+  <% if current_user && current_user.admin? %>
+    <%= link_to 'Neue Leistung hinzufügen', new_servicebox_path %>
+    <br />
+    <br />
+  <% end %>
+
+  <% @serviceboxes.each do |servicebox| %>
+    <% if current_user && current_user.admin? %>
+      <td><%= link_to 'Bearbeiten', edit_servicebox_path(servicebox) %></td>
+      <span class="text-separator">|</span>
+      <td><%= link_to 'Löschen', servicebox, method: :delete, data: { confirm: 'Wirklich löschen?' } %></td>
+    <% end %><br>
+    <div class="news_box">
+      <%= image_tag servicebox.serviceboximage_url(:box).to_s %>
+      <h2><%= servicebox.serviceboxtitle %></h2>       
+      <%= servicebox.serviceboxtext %>
+    </div>
+    <div class="cleaner"></div>
+    <br />
+  <% end %>
+</div>
+
+

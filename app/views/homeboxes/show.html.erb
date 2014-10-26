@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @homebox.homeboximage_url(:box).to_s  %>
+</p>
+
+<p>
+  <b>Homeboxtitle:</b>
+  <%= @homebox.homeboxtitle %>
+</p>
+
+<p>
+  <b>Homeboximage:</b>
+  <%= @homebox.homeboximage %>
+</p>
+
+<p>
+  <b>Homeboxtest:</b>
+  <%= @homebox.homeboxtext %>
+</p>
+
+<p>
+  <b>Homeboxlink:</b>
+  <%= @homebox.homeboxlink %>
+</p>
+
+
+<%= link_to 'Edit', edit_homebox_path(@homebox) %> |
+<%= link_to 'Back', homeboxes_path %>

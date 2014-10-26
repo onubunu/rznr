@@ -1,0 +1,16 @@
+<div id="rznr_middle_subpage">
+    <h2>Keine Bestätigungsmail erhalten?</h2>
+    <%= render "devise/shared/links" %>
+</div>
+
+<div class="col_w600 float_c">
+	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  	<%= devise_error_messages! %>
+	  <div><%= f.label :email %><br />
+  		<%= f.email_field :email, autofocus: true %></div>
+		<br />
+	  <div><%= f.submit "Bestätigungsmail erneut zusenden" %></div>
+	<% end %>
+	<br />
+	<br />
+</div>

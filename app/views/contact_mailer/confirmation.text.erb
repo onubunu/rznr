@@ -1,0 +1,20 @@
+Vielen Dank, wir haben Ihre Nachricht erhalten.
+Wir werden uns so schnell wie möglich bei Ihnen melden.
+
+<% if Setting.first(1).present? && Setting.first.firmname.to_s.present? %>
+	<%= Setting.first.firmname %>
+<% end %>
+<% if Setting.first(1).present? && Setting.first.firmnameadd.to_s.present? %>
+	<%= Setting.first.firmnameadd %>
+<% end %>
+<% if Setting.first(1).present? && Setting.first.firmowner.to_s.present? %>
+	<%= Setting.first.firmowner %>
+<% end %>
+<% if Setting.first(1).present? && Setting.first.firmstreet.to_s.present? %>
+	<%= Setting.first.firmstreet %>
+<% end %>
+<% if Setting.first(1).present? && Setting.first.firmzipcode.to_s.present? && Setting.first.firmcity.to_s.present? %>
+	<%= Setting.first.firmzipcode %> <%= Setting.first.firmcity %>
+<% end %>
+
+

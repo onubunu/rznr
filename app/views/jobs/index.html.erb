@@ -1,0 +1,30 @@
+<div id="rznr_middle_subpage">
+    <h2>Jobs</h2>
+    <p><%= Setting.first(1).present? && Setting.first.jobinfo.to_s.present? ? Setting.first.jobinfo.html_safe : "" %></p>
+</div>
+
+<table>
+  <tr>
+    <th>Jobtitle</th>
+    <th>Jobdescription</th>
+    <th>Validdate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= job.jobtitle %></td>
+    <td><%= job.jobdescription %></td>
+    <td><%= job.validdate %></td>
+    <td><%= link_to 'Show', job %></td>
+    <td><%= link_to 'Edit', edit_job_path(job) %></td>
+    <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job', new_job_path %>

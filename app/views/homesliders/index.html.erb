@@ -1,0 +1,40 @@
+<div id="rznr_middle_subpage">          
+  <h2>Bilderslideshow</h2>
+  <%= link_to 'Grundeinstellungen', settings_path %>
+  <span class="text-separator">|</span> 
+  <%= link_to "Aktionsboxen", homeboxes_url %>
+  <span class="text-separator">|</span>
+  <%= link_to "Nachrichten", contact_messages_path %>
+  <span class="text-separator">|</span>
+  <%= link_to "Benutzer", allusers_path %>      
+  <span class="text-separator">|</span>
+  <%= link_to "Google Analytics", "http://www.google.de/intl/de/analytics/", :target => "_blank" %>
+  <span class="text-separator">|</span>
+  <%= link_to "Roundcube Webmailer", "https://mail.kundenportal.railshoster.de/", :target => "_blank" %>
+  <br />
+  <br />
+  <%= link_to 'Zurück', :back %><span class="text-separator"> | </span><%= link_to 'Neues Bild hinzufügen', new_homeslider_path %>
+</div>
+
+<div class="col_w960 float_l">
+  <table>
+    <% @homesliders.each do |homeslider| %>
+      <tr>  
+        <td class = "images"><br /><%= image_tag homeslider.sliderimage_url(:thumb).to_s  %></td>
+        <td class = "images"><br />
+          <%= link_to 'Bearbeiten', edit_homeslider_path(homeslider) %>
+          <span class="text-separator">|</span>
+          <%= link_to 'Löschen', homeslider, method: :delete, data: { confirm: 'Soll dieses Bild wirklich gelöscht werden?' } %><br />
+          <b>Link nach: </b><%= homeslider.sliderlink.to_s %>
+          <br />
+          <b>Text: </b><%= homeslider.slidertext %>
+          <br />
+          <b>Quelle: </b><%= homeslider.source %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+
+

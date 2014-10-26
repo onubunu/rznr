@@ -1,0 +1,24 @@
+<%= @greeting %> <%= @contact_message.title %> <%= @contact_message.name %>,<br /><br />
+
+vielen Dank, wir haben Ihre Nachricht mit dem Betreff "<%= @contact_message.subject %>" wie folgt erhalten:<br /><br />
+
+<i><%= @contact_message.message %></i><br /><br />
+
+Wir werden uns so schnell wie möglich bei Ihnen melden.<br /><br />
+
+Viele Grüße<br /><br />
+
+<%= Setting.first.firmowner.to_s %> <br />
+<%= Setting.first.firmname.to_s %><br />
+<%= Setting.first.firmnameadd.to_s %><br />
+<%= Setting.first.firmstreet.to_s %><br />
+<%= Setting.first.firmzipcode.to_s %> <%= Setting.first.firmcity.to_s %><br /><br />
+
+E-Mail: <%= Setting.first.firmmail.to_s %><br />
+Tel: <%= Setting.first.firmphone.to_s %><br /><br />
+
+<%= Setting.first.firmweb.to_s %><br /><br />
+
+localhost:3000<%= Setting.first.firmlogo_url(:thumb) %>
+
+ <%= image_tag image_path('rails.png') %>

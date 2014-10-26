@@ -1,0 +1,92 @@
+<div id="rznr_middle_subpage">
+  <h2>Impressum</h2>
+  <p><%= Setting.first(1).present? && Setting.first.legalnoticeinfo.to_s.present? ? Setting.first.legalnoticeinfo.html_safe : "" %></p>
+</div> 
+
+<div class="col_w960 float_l">
+  <div class="news_box">
+		<%= "Angaben gemäß § 5 TMG: " %><br /><br />
+  	<% if Setting.first(1).present? && Setting.first.firmname.to_s.present? %>
+  		<%= Setting.first.firmname %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmnameadd.to_s.present? %>
+  		<%= Setting.first.firmnameadd %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmowner.to_s.present? %>
+  		<%= Setting.first.firmowner %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmstreet.to_s.present? %>
+  		<%= Setting.first.firmstreet %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmzipcode.to_s.present? %>
+  		<%= Setting.first.firmzipcode %>
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmcity.to_s.present? %>
+  		<%= Setting.first.firmcity %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmcountry.to_s.present? %>
+  		<%= Setting.first.firmcountry %><br />
+  	<% end %>
+ 		<% if Setting.first(1).present? && Setting.first.firmtaxno2.to_s.present? %>
+  		<%= "Umsatzsteuer-ID:: " + Setting.first.firmtaxno2 %><br />
+  	<% end %>
+  	<br />
+  	<%= "Kontakt:" %><br />
+  	<% if Setting.first(1).present? && Setting.first.firmphone.to_s.present? %>
+  		<%= "Telefon: " + Setting.first.firmphone %><br />
+  	<% end %>
+  	<% if Setting.first(1).present? && Setting.first.firmfax.to_s.present? %>
+  		<%= "Telefax: " + Setting.first.firmfax %><br />
+  	<% end %>
+  	<% if Setting.first(1).present? && Setting.first.firmmail.to_s.present? %>
+  		<%= "E-Mail: " + Setting.first.firmmail %><br />
+  	<% end %>
+  	<% if Setting.first(1).present? && Setting.first.firmweb.to_s.present? %>
+  		<%= Setting.first.firmweb %><br />
+  	<% end %>
+  	<br />
+  	<% if Setting.first(1).present? && Setting.first.firmmail.to_s.present? %>
+  		<%= "Webentwicklung: " + ENV["GNCWB"] %><br />
+  	<% end %>
+  	<br />
+  	<%= "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: " %><br />
+		<% if Setting.first(1).present? && Setting.first.firmowner.to_s.present? %>
+  		<%= Setting.first.firmowner %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmstreet.to_s.present? %>
+  		<%= Setting.first.firmstreet %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmzipcode.to_s.present? %>
+  		<%= Setting.first.firmzipcode %>
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmcity.to_s.present? %>
+  		<%= Setting.first.firmcity %><br />
+  	<% end %>
+		<% if Setting.first(1).present? && Setting.first.firmcountry.to_s.present? %>
+  		<%= Setting.first.firmcountry %><br />
+  	<% end %>
+  	<% if Setting.first(1).present? && Setting.first.firmmail.to_s.present? %>
+  		<%= Setting.first.firmmail %><br />
+  	<% end %>
+  	<br />
+  	<%= "Bildernachweise:" %><br />
+
+<% Homeslider.where("source <> ''").each do |homeslider| %>
+
+
+          <%= homeslider.source %><br />
+
+    <% end %>
+
+<% Homebox.where("source <> ''").each do |homebox| %>
+
+
+          <%= homebox.source %><br />
+
+    <% end %>
+      	<br />  	
+    <pre><%= word_wrap((Setting.first(1).present? && Setting.first.legalnotice.to_s.present? ? Setting.first.legalnotice.html_safe : ""), line_width: 150) %></pre>
+  </div>
+  <div class="cleaner"></div>
+</div>
+

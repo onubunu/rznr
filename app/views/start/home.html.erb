@@ -1,0 +1,47 @@
+<div id="rznr_middle">
+	<div id="bxslider1" class="bxslider">
+    	<% if Homeslider.first(1).present? && Homeslider.first.sliderimage.present? %>
+      	<% Homeslider.where("id <> 0").sort_by{ rand }.each do |homeslider| %>
+	 				<%= link_to image_tag(homeslider.sliderimage_url(:slider), title: homeslider.slidertext), homeslider.sliderlink %>
+	    	<% end %>
+      <% else %>
+      	<%= link_to image_tag("homeslider.jpg"), root_path %>      
+      <% end %>	
+	</div>
+	<script>
+		$(document).ready(function(){
+		$('#bxslider1').bxSlider({
+		  mode: 'fade',
+		  useCSS: false,
+		  hideControlOnEnd: true,
+		  speed: 1100,
+		  pause: 7000,
+		  auto: true,
+		  captions: true,
+		  controls: false,
+		});
+		});
+	</script>
+</div>
+
+<div id="rznr_main"> 
+	<% i = 0 %>
+	<% Homebox.where("id <> 0").sort_by{ rand }.each do |homebox| %>
+		<% if i == 2 %>
+			<div class="lp_box lp_box_last">
+		<% else %>
+			<div class="lp_box">
+		<% end %>
+				<br />
+				<h6><%= homebox.homeboxtitle %></h6>
+				<%= link_to(image_tag(homebox.homeboximage_url(:box).to_s), homebox.homeboxlink, title: homebox.homeboxtitle) %>
+				<p><%= homebox.homeboxtext %></p>
+				<a href='<%= homebox.homeboxlink %>' class="more float_r">Weiter</a>
+				<div class="cleaner"></div>
+	  	</div>
+			<% i+=1 %>	  	
+	<% end %>
+</div>
+<div class="cleaner"></div>
+<br />
+<br />

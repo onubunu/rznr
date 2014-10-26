@@ -1,0 +1,14 @@
+<div id="rznr_menu">
+  <div id="rznr_menu_divider"><%= image_tag("images/rznr_menu_divider.png") %></div>
+  <ul>
+    <li><a href="<%= root_path %>" class="<%= raw(current_page?(root_url) || request.fullpath.include?(start_legalnotice_path) || request.fullpath.include?(start_terms_path) ? 'current' : '') %>">Start</a></li>
+    <li><a href="<%= serviceboxes_path %>" class="<%= raw(request.fullpath.include?(serviceboxes_path) ? 'current' : '') %>">Leistungen</a></li>
+    <li><a href="<%= referenceboxes_path %>" class="<%= raw(request.fullpath.include?(referenceboxes_path) ? 'current' : '') %>">Referenzen</a></li>
+    <li><a href="<%= employees_path %>" class="<%= raw(request.fullpath.include?(employees_path) ? 'current' : '') %>">Über uns</a></li>
+    <li class=last><a href="<%= new_contact_message_path %>" class="<%= raw(request.fullpath.include?('contact_messages/new') ? 'current' : '') %>">Kontakt</a></li>
+    <% if current_user && current_user.admin? %>
+    	<li class=last><a href="<%= settings_path %>" class="<%= raw(request.fullpath.include?(settings_path) || current_page?(contact_messages_path) || request.fullpath.include?(allusers_path) || request.fullpath.include?(homesliders_path) || request.fullpath.include?(homeboxes_path) ? 'current' : '') %>">Einstellungen</a></li>
+    <% end %>
+  </ul>     
+  <div class="cleaner"></div>
+</div> 

@@ -1,0 +1,25 @@
+<div id="rznr_middle_subpage">
+  <h2>Kontakt</h2>
+    <p><%= Setting.first(1).present? && Setting.first.contactinfo.to_s.present? ? Setting.first.contactinfo.html_safe : "" %></p>
+</div>
+
+<% if Setting.first(1).present? %>
+  <div class="col_w450 float_l">
+    <h3>Kontaktformular</h3>
+    <%= render 'form' %>
+    <br />
+  </div>
+          
+  <div class="col_w450 float_r" id="map">
+    <h3>Kontaktdaten</h3>
+    <h6><%= Setting.first(1).present? && Setting.first.firmname.to_s.present? ? Setting.first.firmname.to_s : "" %></h6>
+      <%= Setting.first(1).present? && Setting.first.firmnameadd.to_s.present? ? Setting.first.firmnameadd.to_s : "" %><br />
+      <%= Setting.first(1).present? && Setting.first.firmstreet.to_s.present? ? Setting.first.firmstreet.to_s : "" %><br />
+      <%= Setting.first(1).present? && Setting.first.firmzipcode.to_s.present? ? Setting.first.firmzipcode.to_s + " " : "" %>
+      <%= Setting.first(1).present? && Setting.first.firmcity.to_s.present? ? Setting.first.firmcity.to_s : "" %><br />
+      <%= Setting.first(1).present? && Setting.first.firmfax.to_s.present? ? "Fax: " + Setting.first.firmfax.to_s : "" %><br />
+      <%= Setting.first(1).present? && Setting.first.firmphone.to_s.present? ? "Tel: " + Setting.first.firmphone.to_s : "" %><br />
+      <%= Setting.first(1).present? && Setting.first.firmmail.to_s.present? ? "Email: " + Setting.first.firmmail.to_s : "" %><br />
+  </div>
+  <div class="cleaner"></div>
+<% end %>

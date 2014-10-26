@@ -1,0 +1,23 @@
+<div id="rznr_cr_wrapper">
+	<div id="rznr_cr">
+		<article>
+			<div id="bg">				
+				<%= link_to "Start", root_path %><span class="text-separator">|</span><%= link_to "Leistungen", serviceboxes_path %><span class="text-separator">|</span><%= link_to "Kontakt", new_contact_message_path %><span class="text-separator">|</span><%= link_to "Stellenangebote", jobs_path %><span class="text-separator">|</span><%= link_to "AGB", start_terms_path %><span class="text-separator">|</span><%= link_to "Impressum", start_legalnotice_path %>
+			</div>
+		</article>
+	</div>
+</div>
+<div id="rznr_cr2_wrapper">
+	<div id="rznr_cr2">
+		<%= Setting.first(1).present? && Setting.first.firmname.to_s.present? ? Setting.first.firmname.to_s : "Website" %> 
+		&copy;
+		<%= Time.now.strftime("%Y").to_s %>
+	</div>
+	<div id="rznr_cr2">
+		<%= "Webentwicklung: " %><%= link_to ENV["GNCWB"], ENV["GNCLNK"], :target => "_blank" %> 
+	</div>
+</div>
+
+
+
+

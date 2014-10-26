@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @referencebox.referenceimage_url(:box).to_s  %>
+</p>
+
+<p>
+  <b>Referencetitle:</b>
+  <%= @referencebox.referencetitle %>
+</p>
+
+<p>
+  <b>Referenceimage:</b>
+  <%= @referencebox.referenceimage %>
+</p>
+
+<p>
+  <b>Referencetext:</b>
+  <%= @referencebox.referencetext %>
+</p>
+
+
+<%= link_to 'Edit', edit_referencebox_path(@referencebox) %> |
+<%= link_to 'Back', referenceboxes_path %>
