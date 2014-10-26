@@ -150,7 +150,7 @@
   <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#terms"  %>
   <br />
   <br />
-  <pre><%= @setting.terms %></pre>
+  <pre><%= word_wrap(@setting.terms, line_width: 120) %></pre> 
 
   <hr/>
   <hr/>
@@ -161,7 +161,7 @@
   <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#legalnotice" %>
   <br /> 
   <br /> 
-  <pre><%= @setting.legalnotice %></pre>
+  <pre><%= word_wrap(@setting.legalnotice, line_width: 120) %></pre> 
  
   <hr/>
   <hr/>

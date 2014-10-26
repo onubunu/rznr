@@ -85,7 +85,7 @@
 
     <% end %>
       	<br />  	
-    <pre><%= word_wrap((Setting.first(1).present? && Setting.first.legalnotice.to_s.present? ? Setting.first.legalnotice.html_safe : ""), line_width: 150) %></pre>
+    <pre><%= word_wrap((Setting.first(1).present? && Setting.first.legalnotice.to_s.present? ? Setting.first.legalnotice.html_safe : ""), line_width: 130) %></pre>
   </div>
   <div class="cleaner"></div>
 </div>
