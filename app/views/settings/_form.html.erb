@@ -66,7 +66,9 @@
     <%= f.text_field :firmtaxno2 %>
   </div>
   <br />
-    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#settings"%>
+  <% if Setting.first(1).present? %>
+    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#settings" %>
+  <% end %>
   <hr/>
   <hr/>
   <br />
@@ -102,7 +104,9 @@
     <%= f.text_area :legalnoticeinfo, :maxlength => 150, size: "80x3" %>
   </div>
   <br />
-    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#infos"%>
+  <% if Setting.first(1).present? %>
+    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#infos" %>
+  <% end %>
   <hr/>
   <hr/>
   <br />
@@ -112,7 +116,9 @@
   <div class="field">
     <%= f.text_area :terms, size: "100x20" %>
   </div>
-    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#terms"%>
+  <% if Setting.first(1).present? %>
+    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#terms" %>
+  <% end %>
   <hr/>
   <hr/>
   <br />
@@ -123,7 +129,9 @@
     <%=f.text_area :legalnotice, size: "100x20" %>
   </div>
   <div class="actions">
-    <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#legalnotice"%>
+    <% if Setting.first(1).present? %>
+      <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#legalnotice" %>
+    <% end %>
   </div>
   <hr/>
   <hr/>
