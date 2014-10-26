@@ -131,6 +131,8 @@
   <div class="actions">
     <% if Setting.first(1).present? %>
       <%= f.submit "Einstellungen übernehmen" %> <%= link_to 'Abbrechen', setting_path(@setting)  + "#legalnotice" %>
+    <% else %>
+      <%= f.submit "Einstellungen übernehmen" %>
     <% end %>
   </div>
   <hr/>
