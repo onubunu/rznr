@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
-  before_filter :authenticate_user!#, except: [ :index, :show ]
-  before_filter :is_admin?#, except: [ :index, :show ]
+  before_filter :authenticate_user!, except: [ :index ]
+  before_filter :is_admin?, except: [ :index ]
   
   # GET /jobs
   # GET /jobs.json
