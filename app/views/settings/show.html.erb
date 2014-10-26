@@ -150,7 +150,7 @@
   <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#terms"  %>
   <br />
   <br />
-  <pre><%= truncate(@setting.terms, length: 100) %></pre>
+  <%= truncate(@setting.terms, length: 100) %>
 
   <hr/>
   <hr/>
@@ -161,7 +161,7 @@
   <%= link_to 'Bearbeiten', edit_setting_path(@setting) + "#legalnotice" %>
   <br /> 
   <br /> 
-  <pre><%= truncate(@setting.legalnotice, length: 100) %></pre>
+  <%= truncate(@setting.legalnotice, length: 100) %>
  
   <hr/>
   <hr/>
