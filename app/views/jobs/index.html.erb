@@ -2,7 +2,6 @@
     <h2>Stellenangebote</h2>
     <p><%= Setting.first(1).present? && Setting.first.jobinfo.to_s.present? ? Setting.first.jobinfo.html_safe : "" %></p>
   <br />
-  <br />
   <%= link_to 'Zurück', :back %>
 </div>
 
