@@ -9,7 +9,7 @@ class Homebox < ActiveRecord::Base
     homeboximage.recreate_versions! if crop_x.present?
   end
 
-  validates_presence_of :homeboximage, :homeboxtitle, :homeboxlink, :homeboxtext
+  validates_presence_of :homeboximage, :homeboxtitle, :homeboxtext
   validate :homeboximage_size_validation
 
   private
