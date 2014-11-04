@@ -18,5 +18,5 @@ class Homeslider < ActiveRecord::Base
     errors[:sliderimage] << "should be less than 10MB" if sliderimage.size > 10.megabytes
   end
 
-  LINKS = [["Startseite", "start/home"], ["Leistungen", "serviceboxes"], ["Referenzen", "referenceboxes"], ["Über uns", "employees"], ["Kontakt", "contact_messages/new"], ["Stellenangebote", "jobs"]];
+  LINKS = [["Startseite", ""], ["Leistungen", "serviceboxes"], ["Referenzen", "referenceboxes"], ["Über uns", "employees"], ["Kontakt", "contact_messages/new"], ["Stellenangebote", "jobs"]];
 end

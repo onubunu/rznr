@@ -2,7 +2,7 @@
 	<div id="bxslider1" class="bxslider">
     	<% if Homeslider.first(1).present? && Homeslider.first.sliderimage.present? %>
       	<% Homeslider.where("id <> 0").sort_by{ rand }.each do |homeslider| %>
-	 				<%= link_to image_tag(homeslider.sliderimage_url(:slider), title: homeslider.slidertext), homeslider.sliderlink %>
+	 				<%= link_to image_tag(homeslider.sliderimage_url(:slider), title: homeslider.slidertext), root_url + homeslider.sliderlink %>
 	    	<% end %>
       <% else %>
       	<%= link_to image_tag("homeslider.jpg"), root_path %>      
@@ -34,9 +34,9 @@
 		<% end %>
 				<br />
 				<h6><%= homebox.homeboxtitle %></h6>
-				<%= link_to(image_tag(homebox.homeboximage_url(:box).to_s), homebox.homeboxlink, title: homebox.homeboxtitle) %>
+				<%= link_to(image_tag(homebox.homeboximage_url(:box).to_s), root_url + homebox.homeboxlink, title: homebox.homeboxtitle) %>
 				<p><%= homebox.homeboxtext %></p>
-				<a href='<%= homebox.homeboxlink %>' class="more float_r">Weiter</a>
+				<a href='<%= root_url + homebox.homeboxlink %>' class="more float_r">Weiter</a>
 				<div class="cleaner"></div>
 	  	</div>
 			<% i+=1 %>	  	
