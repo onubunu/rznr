@@ -9,7 +9,7 @@ class Homeslider < ActiveRecord::Base
     sliderimage.recreate_versions! if crop_x.present?
   end
   
-  validates_presence_of :sliderimage, :homeboxlink
+  validates_presence_of :sliderimage, :sliderlink
   validate :sliderimage_size_validation
 
   private
