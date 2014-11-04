@@ -9,7 +9,7 @@ class Homeslider < ActiveRecord::Base
     sliderimage.recreate_versions! if crop_x.present?
   end
   
-  validates_presence_of :sliderimage
+  validates_presence_of :sliderimage, :homeboxlink
   validate :sliderimage_size_validation
 
   private
@@ -18,5 +18,5 @@ class Homeslider < ActiveRecord::Base
     errors[:sliderimage] << "should be less than 10MB" if sliderimage.size > 10.megabytes
   end
 
-  LINKS = [["Startseite", ""], ["Leistungen", "serviceboxes"], ["Referenzen", "referenceboxes"], ["Über uns", "employees"], ["Kontakt", "contact_messages/new"], ["Stellenangebote", "jobs"]];
+  LINKS = [["Startseite", "../"], ["Leistungen", "serviceboxes"], ["Referenzen", "referenceboxes"], ["Über uns", "employees"], ["Kontakt", "contact_messages/new"], ["Stellenangebote", "jobs"]];
 end
